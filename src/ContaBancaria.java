@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class ContaBancaria {
     private final String NAME;
     private final Integer NUMERO;
     private Double saldo;
     private Double cheque;
+    private ArrayList<Boleto> boletos = new ArrayList<>();
 
     public ContaBancaria(String name, Integer numero, Double saldo){
         this.NAME = name;
@@ -39,8 +42,20 @@ public class ContaBancaria {
         System.out.println("Saldo atual: " + getSaldo());
     }
 
-    public Double boleto(){
-        return 2.09;
+    public void criarBoleto(Integer codigo, Double valor){
+        Boleto boleto = new Boleto(codigo, valor);
+        boletos.add(boleto);
+        System.out.println("O boleto criado foi: " + boleto);
+    }
+
+    public void pagarBoleto(Boleto boleto){
+        if(this.saldo < boleto.getVALOR()){
+            System.out.println("Saldo insuficiente para pagar o boleto!");
+            return;
+        }
+        this.saldo -= boleto.getVALOR();
+        System.out.println("O boleto: " + boleto + " foi pago!");
+        boletos.remove(boleto);
     }
 
     public Double getCheque() {
