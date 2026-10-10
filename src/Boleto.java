@@ -14,4 +14,12 @@ public class Boleto {
     public Double getVALOR() {
         return VALOR;
     }
+
+    public String toString(){
+        return "BOLETO: " +
+                getCODIGO() +
+                " VALOR: " +
+                getVALOR();
+    }
+
 }
