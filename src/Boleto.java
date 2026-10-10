@@ -6,4 +6,12 @@ public class Boleto {
         this.CODIGO = codigo;
         this.VALOR = valor;
     }
+
+    public Integer getCODIGO() {
+        return CODIGO;
+    }
+
+    public Double getVALOR() {
+        return VALOR;
+    }
 }
