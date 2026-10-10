@@ -58,6 +58,13 @@ public class ContaBancaria {
         boletos.remove(boleto);
     }
 
+    public void listarBoletos(){
+        for(Boleto boleto : boletos){
+            System.out.println(boleto);
+        }
+        System.out.println("Sem boletos para pagar");
+    }
+
     public Double getCheque() {
         return cheque;
     }
