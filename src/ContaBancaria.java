@@ -69,6 +69,13 @@ public class ContaBancaria {
         return cheque;
     }
 
+    public void limiteCheque(Double saldo){
+        if(saldo <= 500)
+            this.cheque = 50.0;
+        else
+            this.cheque += saldo * 50 /100;
+    }
+
 
 
 
