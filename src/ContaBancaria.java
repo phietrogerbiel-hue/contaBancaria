@@ -75,9 +75,4 @@ public class ContaBancaria {
         else
             this.cheque += saldo * 50 /100;
     }
-
-
-
-
-
 }
