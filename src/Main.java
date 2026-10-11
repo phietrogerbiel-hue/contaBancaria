@@ -10,6 +10,7 @@ public class Main {
 
       ContaBancaria conta = new ContaBancaria(cliente.getNome(), cliente.getCodigo(), cliente.getSaldo());
       System.out.println("Conta cadastrada com sucesso!");
+      conta.limiteCheque(conta.getSaldo());
 
       System.out.println("===ESCOLHA O SERVIÇO===");
       do {
@@ -17,8 +18,8 @@ public class Main {
           conta.servicos();
 
           switch(new Scanner(System.in).nextInt()){
-              case 1-> conta.getSaldo();
-              case 2-> conta.getCheque();
+              case 1-> System.out.println(conta.getSaldo());
+              case 2-> System.out.println(conta.getCheque());
               case 3-> {
                   System.out.println("Quanto você quer depositar?");
                   Double n = new Scanner(System.in).nextDouble();
