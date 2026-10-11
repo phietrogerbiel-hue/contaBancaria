@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
       Cliente cliente = new Cliente();
-      ArrayList<Boleto> boletos = new ArrayList<>();
-
       cliente.novaConta();
 
       ContaBancaria conta = new ContaBancaria(cliente.getNome(), cliente.getCodigo(), cliente.getSaldo());
@@ -38,8 +36,9 @@ public class Main {
                   conta.criarBoleto(n, v);
               }
               case 6-> {
-                  System.out.println("Digite o indice do boleto que quer pagar (ex: 1,2; Consulte usando 7)");
-                  conta.pagarBoleto(boletos.get(new Scanner(System.in).nextInt()));
+                  System.out.println("Digite o número do boleto que quer pagar (ex: 1, 2; Consulte usando 7)");
+                  int opcao = new Scanner(System.in).nextInt();
+                  conta.pagarBoleto(opcao);
               }
               case 7-> conta.listarBoletos();
               case 8-> System.exit(0);

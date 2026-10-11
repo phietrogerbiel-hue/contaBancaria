@@ -59,21 +59,38 @@ public class ContaBancaria {
         System.out.println("O boleto criado foi: " + boleto);
     }
 
-    public void pagarBoleto(Boleto boleto){
-        if(this.saldo < boleto.getVALOR()){
+    public void pagarBoleto(int posicao) {
+        // Converte a posição visual (1, 2, 3...) para o índice do Java (0, 1, 2...)
+        int index = posicao - 1;
+
+        // Valida se o índice existe na lista interna da conta
+        if (index < 0 || index >= boletos.size()) {
+            System.out.println("Índice de boleto inválido!");
+            return;
+        }
+
+        // Obtém o boleto da lista interna
+        Boleto boleto = boletos.get(index);
+
+        if (this.saldo < boleto.getVALOR()) {
             System.out.println("Saldo insuficiente para pagar o boleto!");
             return;
         }
+
         this.saldo -= boleto.getVALOR();
         System.out.println("O boleto: " + boleto + " foi pago!");
-        boletos.remove(boleto);
+        boletos.remove(index); // Remove pela posição
     }
 
-    public void listarBoletos(){
-        for(Boleto boleto : boletos){
-            System.out.println(boleto);
-        } if(boletos.size() == 0)
-        System.out.println("Sem boletos para pagar");
+    public void listarBoletos() {
+        if (boletos.isEmpty()) {
+            System.out.println("Sem boletos para pagar");
+            return;
+        }
+
+        for (int i = 0; i < boletos.size(); i++) {
+            System.out.println((i + 1) + " - " + boletos.get(i));
+        }
     }
 
     public Double getCheque() {
