@@ -4,7 +4,7 @@ public class ContaBancaria {
     private final String NAME;
     private final Integer NUMERO;
     private Double saldo;
-    private Double cheque;
+    private Double cheque = 0.0;
     private ArrayList<Boleto> boletos = new ArrayList<>();
 
     public ContaBancaria(String name, Integer numero, Double saldo){
@@ -81,7 +81,7 @@ public class ContaBancaria {
     }
 
     public void limiteCheque(Double saldo){
-        if(saldo <= 500)
+        if(this.saldo <= 500)
             this.cheque = 50.0;
         else
             this.cheque += saldo * 50 / 100;
