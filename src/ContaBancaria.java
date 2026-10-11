@@ -13,6 +13,17 @@ public class ContaBancaria {
         this.saldo = saldo;
     }
 
+    public void servicos(){
+        System.out.println("1 - CONSULTAR SALDO");
+        System.out.println("2 - CONSULTAR CHEQUE");
+        System.out.println("3 - DEPOSITAR DINHEIRO");
+        System.out.println("4 - SACAR DINHEIRO");
+        System.out.println("5 - CRIAR UM BOLETO");
+        System.out.println("6 - PAGAR UM BOLETO");
+        System.out.println("7 - LISTAR OS BOLETO");
+        System.out.println("8 - EXIT");
+    }
+
     public String getNAME() {
         return NAME;
     }
@@ -22,13 +33,13 @@ public class ContaBancaria {
     }
 
     public Double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public void depositar(Double saldo){
         this.saldo += saldo;
-        System.out.print("O valor depositado foi de: " + saldo);
-        System.out.print("O saldo atual é de: " + getSaldo());
+        System.out.println("O valor depositado foi de: " + saldo);
+        System.out.println("O saldo atual é de: " + getSaldo());
     }
 
     public void sacar (Double saldo){
@@ -61,7 +72,7 @@ public class ContaBancaria {
     public void listarBoletos(){
         for(Boleto boleto : boletos){
             System.out.println(boleto);
-        }
+        } if(boletos.size() == 0)
         System.out.println("Sem boletos para pagar");
     }
 
@@ -73,6 +84,6 @@ public class ContaBancaria {
         if(saldo <= 500)
             this.cheque = 50.0;
         else
-            this.cheque += saldo * 50 /100;
+            this.cheque += saldo * 50 / 100;
     }
 }
