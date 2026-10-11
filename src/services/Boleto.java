@@ -1,3 +1,5 @@
+package services;
+
 public class Boleto {
     private final Integer CODIGO;
     private final Double VALOR;
